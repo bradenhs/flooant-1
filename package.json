@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start-db": "mkdir -p tmp && gcloud beta emulators datastore start --project local-datastore --host-port localhost:8180 --data-dir ./tmp/local_datastore"
+    "db": "mkdir -p tmp && gcloud beta emulators datastore start --project local-datastore --host-port localhost:8180 --data-dir ./tmp/local_datastore"
   }
 }
