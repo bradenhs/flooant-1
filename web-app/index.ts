@@ -1,26 +1,14 @@
-import { API } from "~/server/api";
+import { api, isOk } from "./api";
 
-const endpoints = new Map<string, Function>();
+console.log("starting");
+start();
 
-export const api = new Proxy({}, { get }) as API;
+async function start() {
+  const response = await api.add(1, 2);
 
-function get(path: string) {
-  if (endpoints.has(path)) {
-    return endpoints.get(path);
+  if (isOk(response)) {
+    console.log("Ok", response.result);
+  } else {
+    console.log("Not ok", response);
   }
-
-  const endpoint = createEndpoint(path);
-  endpoints.set(path, endpoint);
-  return endpoint;
-}
-
-function createEndpoint(path: string) {
-  return async (...args: any[]) => {
-    const response = await fetch(path, {
-      method: "POST",
-      body: JSON.stringify(args)
-    });
-
-    return response.json();
-  };
 }

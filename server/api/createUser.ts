@@ -1,9 +1,9 @@
 interface CreateUserParams {
-  email: string;
+  theemail: string;
   firstName: string;
   password: string;
 }
 
 export async function createUser(params: CreateUserParams) {
-  params;
+  return Promise.resolve(params);
 }
