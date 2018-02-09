@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "web-app":
-      "source .env && parcel serve ./web-app/index.html -p $WEB_APP_PORT",
+    "typecheck": "tsc --project tsconfig.json --noEmit --pretty --watch",
+    "web-app": "source .env && parcel serve ./web-app/index.html -p $WEB_APP_PORT",
     "server": "run.env ts-node ./server/main/index.ts",
     "clean": "source .env && rm -rf $DATA_DIR",
-    "db":
-      "source .env && mkdir -p $DATA_DIR && gcloud beta emulators datastore start --project $DATASTORE_PROJECT_ID --host-port $DATASTORE_EMULATOR_HOST --data-dir $DATA_DIR"
+    "db": "source .env && mkdir -p $DATA_DIR && gcloud beta emulators datastore start --project $DATASTORE_PROJECT_ID --host-port $DATASTORE_EMULATOR_HOST --data-dir $DATA_DIR"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.3.3",
@@ -26,6 +25,6 @@
     "run.env": "^1.0.1",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
-    "typescript": "^2.7.1"
+    "typescript": "^2.8.0-dev.20180209"
   }
 }

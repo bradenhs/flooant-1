@@ -11,5 +11,6 @@
     "yarn.lock": true,
     "dist": true,
     ".cache": true
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

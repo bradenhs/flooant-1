@@ -4,4 +4,6 @@ interface CreateUserParams {
   password: string;
 }
 
-export async function createUser(params: CreateUserParams) {}
+export async function createUser(params: CreateUserParams) {
+  params;
+}
