@@ -4,5 +4,12 @@
   "private": true,
   "scripts": {
     "db": "mkdir -p tmp && gcloud beta emulators datastore start --project local-datastore --host-port localhost:8180 --data-dir ./tmp/local_datastore"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^1.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2",
+    "typescript": "^2.7.1"
   }
 }
