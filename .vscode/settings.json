@@ -8,6 +8,8 @@
     "**/.DS_Store": true,
     "node_modules": true,
     "tmp": true,
-    "yarn.lock": true
+    "yarn.lock": true,
+    "dist": true,
+    ".cache": true
   }
 }
