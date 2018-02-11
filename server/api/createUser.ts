@@ -1,9 +1,17 @@
+import * as db from "~/server/db";
+
 interface CreateUserParams {
-  theemail: string;
-  firstName: string;
+  email: string;
   password: string;
 }
 
 export async function createUser(params: CreateUserParams) {
-  return Promise.resolve(params);
+  const data = await db.createUser({
+    email: params.email,
+    unencryptedPassword: params.password
+  });
+
+  console.log(data);
+
+  return data;
 }

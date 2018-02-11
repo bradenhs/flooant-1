@@ -22,12 +22,11 @@ app.listen(process.env.SERVER_PORT);
 function createEndpoint(fn: Function) {
   return async (context: Context) => {
     try {
-      console.log(context.request.body);
-      context.response = await fn(...context.request.body);
+      context.body = await fn(...context.request.body);
       context.status = 200;
     } catch (error) {
       logger.error(`500 for ${context.path}`);
-      context.response = serializeError(error);
+      context.body = serializeError(error);
       context.status = 500;
     }
   };

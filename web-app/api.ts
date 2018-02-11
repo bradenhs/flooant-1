@@ -65,7 +65,10 @@ function createEndpoint(path: string) {
     try {
       response = await fetch(`http://localhost:${process.env.SERVER_PORT}/${path}`, {
         method: "POST",
-        body: JSON.stringify(args)
+        body: JSON.stringify(args),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
       });
     } catch (error) {
       return {
@@ -80,7 +83,7 @@ function createEndpoint(path: string) {
     let result: any = null;
     
     try {
-      result = await response!.json();
+      result = await response.json();
     } catch (error) {
       return {
         response,
