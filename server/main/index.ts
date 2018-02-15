@@ -1,9 +1,9 @@
-import { api, API } from "~/server/api";
+import { api, API } from "server/api";
 import Koa, { Context } from "koa";
 import Router from "koa-router";
 import bodyParser from "koa-bodyparser";
 import serializeError from "serialize-error";
-import { logger } from "~/server/logger";
+import { logger } from "server/logger";
 import cors from "@koa/cors";
 
 const app = new Koa();

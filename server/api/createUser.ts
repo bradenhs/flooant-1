@@ -1,4 +1,4 @@
-import * as db from "~/server/db";
+import * as db from "server/db";
 
 interface CreateUserParams {
   email: string;

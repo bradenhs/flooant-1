@@ -4,9 +4,6 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "baseUrl": "./",
-    "paths": {
-      "~/*": ["*"]
-    },
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,7 +18,8 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true
   },
   "exclude": ["node_modules"]
 }

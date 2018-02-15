@@ -1,4 +1,4 @@
-import { API } from "~/server/api";
+import { API } from "server/api";
 
 export const enum ErrorType {
   JSON_PARSE_ERROR = "JSON_PARSE_ERROR",
