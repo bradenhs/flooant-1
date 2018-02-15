@@ -4,16 +4,15 @@
   "private": true,
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start":
-      "source .env && stmux -t \"Flooant Build Environment\" -w always -M -f stmux.config",
-    "typechecker": "tsc --project tsconfig.json --pretty --noEmit --watch",
+    "typechecker":
+      "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
     "server":
-      "run.env ts-node-dev -r tsconfig-paths/register ./server/main/index.ts",
+      "run.env ts-node-dev --inspect --no-notify --debug-brk -r tsconfig-paths/register ./server/main/index.ts",
     "clean": "source .env && rm -rf $DATA_DIR",
     "client": "react-native-scripts start",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "db":
+    "database":
       "source .env && mkdir -p $DATA_DIR && gcloud beta emulators datastore start --project $DATASTORE_PROJECT_ID --no-store-on-disk --host-port $DATASTORE_EMULATOR_HOST --data-dir $DATA_DIR"
   },
   "dependencies": {
@@ -39,11 +38,11 @@
     "@types/react": "^16.0.38",
     "@types/react-native": "^0.52.12",
     "@types/winston": "^2.3.7",
+    "build-error-notifier": "^1.0.0",
     "prettier": "^1.10.2",
     "react-native-scripts": "^1.11.1",
     "react-native-typescript-transformer": "^1.2.3",
     "run.env": "^1.0.1",
-    "stmux": "^1.4.19",
     "ts-node": "^4.1.0",
     "ts-node-dev": "^1.0.0-pre.9",
     "tsconfig-paths": "^3.1.1",

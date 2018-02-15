@@ -1,1 +1,1 @@
-export const text = "there thjere";
+export const text = "there person";
