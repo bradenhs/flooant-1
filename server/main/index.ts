@@ -6,7 +6,12 @@ import serializeError from "serialize-error";
 import { logger } from "server/logger";
 import cors from "@koa/cors";
 
+console.log("one");
+console.log("two");
+console.log("three");
+
 const app = new Koa();
+console.log("hi");
 const router = new Router();
 
 const endpoints = Object.keys(api) as (keyof API)[];

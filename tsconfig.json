@@ -19,7 +19,8 @@
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "allowJs": true
+    "allowJs": true,
+    "inlineSourceMap": true
   },
   "exclude": ["node_modules"]
 }

@@ -9,7 +9,7 @@
     "**/.DS_Store": true,
     ".expo": true,
     "node_modules": true,
-    ".vscode": true,
+    ".vscode": false,
     "tmp": true,
     "yarn.lock": true
   }

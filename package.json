@@ -7,7 +7,7 @@
     "typechecker":
       "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
     "server":
-      "run.env ts-node-dev --inspect --no-notify --debug-brk -r tsconfig-paths/register ./server/main/index.ts",
+      "run.env ts-node-dev --inspect --no-notify -r tsconfig-paths/register ./server/main/index.ts",
     "clean": "source .env && rm -rf $DATA_DIR",
     "client": "react-native-scripts start",
     "android": "react-native-scripts android",
