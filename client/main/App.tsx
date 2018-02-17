@@ -1,47 +1,102 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { LinearGradient } from "expo";
-import { reverse } from "common/reverse";
+import { TextInput } from "client/text-input";
+import {
+  KeyboardAvoidingView,
+  View,
+  TouchableOpacity,
+  Text,
+  Button
+} from "react-native";
 
-export class FacebookButton extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <LinearGradient
-          colors={["#4c669f", "#3b5998", "#192f6a"]}
-          style={{ padding: 15, alignItems: "center", borderRadius: 5 }}
-        >
-          <Text
-            style={{
-              backgroundColor: "transparent",
-              fontSize: 15,
-              color: "#fff"
-            }}
-          >
-            {reverse("Hello")}
-          </Text>
-        </LinearGradient>
-      </View>
-    );
-  }
-}
+const divide = 66;
 
 export class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Person</Text>
-        <FacebookButton />
-      </View>
+      <KeyboardAvoidingView
+        behavior="padding"
+        style={{ flex: 1, alignItems: "center" }}
+      >
+        <View
+          style={{
+            backgroundColor: "#4fc37d",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            height: divide + "%"
+          }}
+        >
+          <View
+            style={{
+              width: 300,
+              alignSelf: "center",
+              position: "absolute",
+              bottom: 60
+            }}
+          >
+            <TextInput
+              keyboardType="email-address"
+              placeholder="Email"
+              iconName="email-open"
+            />
+            <View style={{ marginTop: 10 }}>
+              <TextInput
+                placeholder="Password"
+                iconName="lock"
+                secureTextEntry
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: divide + "%",
+            bottom: 0,
+            backgroundColor: "#4d4d4d",
+            paddingTop: 40
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => 0}
+            style={{
+              backgroundColor: "#4fc37d",
+              elevation: 1,
+              shadowColor: "#444",
+              width: 200,
+              alignSelf: "center",
+              shadowOpacity: 0.3,
+              flexDirection: "row",
+              borderTopColor: "rgba(255,255,255,.3)",
+              borderTopWidth: 1,
+              shadowRadius: 4,
+              marginBottom: 10,
+              shadowOffset: { width: 0, height: 2 },
+              borderRadius: 30
+            }}
+          >
+            <Text
+              style={{
+                color: "#fff",
+                lineHeight: 54,
+                fontSize: 18,
+                fontWeight: "900",
+                textShadowColor: "#4d4d4d",
+                textShadowRadius: 2,
+                textShadowOffset: { width: 0, height: -1 },
+                width: "100%",
+                textAlign: "center"
+              }}
+            >
+              LOGIN
+            </Text>
+          </TouchableOpacity>
+          <Button title="Sign Up" onPress={() => 0} color="#fff" />
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
