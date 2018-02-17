@@ -3,10 +3,13 @@
   "private": true,
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "stmux --mouse -- [ [ \"yarn run server\" .. \"yarn run client\"  ] : [ \"yarn run typechecker\" .. \"yarn run database\" ] ]",
-    "typechecker": "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
-    "server": "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
-    "client": "react-native-scripts ios",
+    "start":
+      "stmux --mouse -- [ [ \"yarn run server\" .. \"yarn run client\"  ] : [ \"yarn run typechecker\" .. \"yarn run database\" ] ]",
+    "typechecker":
+      "tsc --project tsconfig.json --noEmit --watch | build-error-notifier",
+    "server":
+      "ts-node-dev -r tsconfig-paths/register --respawn --no-notify ./server/main/index.ts",
+    "client": "react-native-scripts start",
     "database": "echo \"Database\""
   },
   "dependencies": {

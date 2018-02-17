@@ -8,7 +8,7 @@ import {
   Button
 } from "react-native";
 
-const divide = 66;
+const divide = 60;
 
 export class App extends React.Component {
   render() {
@@ -84,9 +84,6 @@ export class App extends React.Component {
                 lineHeight: 54,
                 fontSize: 18,
                 fontWeight: "900",
-                textShadowColor: "#4d4d4d",
-                textShadowRadius: 2,
-                textShadowOffset: { width: 0, height: -1 },
                 width: "100%",
                 textAlign: "center"
               }}
