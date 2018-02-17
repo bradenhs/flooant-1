@@ -1,8 +1,0 @@
-{
-  "recommendations": [
-    "eamodio.gitlens",
-    "esbenp.prettier-vscode",
-    "eg2.tslint",
-    "mikestead.dotenv"
-  ]
-}

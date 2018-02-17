@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { LinearGradient } from "expo";
-import { text } from "shared/text";
+import { reverse } from "common/reverse";
 
 export class FacebookButton extends React.Component {
   render() {
@@ -18,7 +18,7 @@ export class FacebookButton extends React.Component {
               color: "#fff"
             }}
           >
-            {text}
+            {reverse("Hello")}
           </Text>
         </LinearGradient>
       </View>

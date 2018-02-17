@@ -1,2 +1,2 @@
-import { App } from "client/main";
+import { App } from "mobile-app/main";
 export default App;
