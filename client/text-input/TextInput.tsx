@@ -46,6 +46,7 @@ interface Props {
   secureTextEntry?: boolean;
   keyboardType?: KeyboardType;
   onFocus?: () => void;
+  style?: any;
 }
 
 @autobind
@@ -57,7 +58,8 @@ export class TextInput extends React.PureComponent<Props> {
       placeholder,
       iconName,
       secureTextEntry,
-      onFocus
+      onFocus,
+      style
     } = this.props;
 
     return (
@@ -74,11 +76,17 @@ export class TextInput extends React.PureComponent<Props> {
           placeholder={placeholder}
           value={value}
           autoCapitalize="none"
+          returnKeyType="done"
           onFocus={onFocus}
+          spellCheck={false}
+          keyboardAppearance="dark"
           autoCorrect={false}
           secureTextEntry={secureTextEntry}
           onChangeText={onChangeText}
-          style={iconName ? inputStyleWithIcon : inputStyle}
+          style={{
+            ...(iconName ? (inputStyleWithIcon as {}) : inputStyle),
+            ...style
+          }}
         />
       </View>
     );
