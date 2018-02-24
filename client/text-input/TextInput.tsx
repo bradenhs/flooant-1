@@ -1,16 +1,17 @@
 import React from "react";
 import {
   TextInput as RNTextInput,
-  StyleProp,
   TextStyle,
   ViewStyle,
+  TouchableWithoutFeedback,
   View,
-  KeyboardType
+  TextInputProperties
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { autobind } from "core-decorators";
+import { theme } from "client/theme";
 
-const inputStyle: StyleProp<TextStyle> = {
+const inputStyle: TextStyle = {
   paddingHorizontal: 20,
   paddingVertical: 15,
   flexGrow: 1,
@@ -18,16 +19,16 @@ const inputStyle: StyleProp<TextStyle> = {
   fontSize: 18
 };
 
-const inputStyleWithIcon: StyleProp<TextStyle> = {
+const inputStyleWithIcon: TextStyle = {
   ...inputStyle,
   paddingLeft: 0
 };
 
-const iconStyle: StyleProp<any> = {
+const iconStyle = {
   padding: 16
 };
 
-const containerStyle: StyleProp<ViewStyle> = {
+const containerStyle: ViewStyle = {
   backgroundColor: "#fff",
   elevation: 1,
   shadowColor: "#444",
@@ -35,60 +36,82 @@ const containerStyle: StyleProp<ViewStyle> = {
   flexDirection: "row",
   shadowRadius: 4,
   shadowOffset: { width: 0, height: 2 },
-  borderRadius: 3
+  borderRadius: 3,
+  zIndex: 1
 };
 
-interface Props {
-  value?: string;
-  placeholder?: string;
+interface Props extends TextInputProperties {
   iconName?: string;
-  onChangeText?(value: string): void;
-  secureTextEntry?: boolean;
-  keyboardType?: KeyboardType;
-  onFocus?: () => void;
-  style?: any;
+  style?: ViewStyle;
+  errors?: string[];
+  warnings?: string[];
+  notes?: string[];
 }
 
 @autobind
 export class TextInput extends React.PureComponent<Props> {
+  input: RNTextInput | null = null;
+
   render() {
-    const {
-      value,
-      onChangeText,
-      placeholder,
+    let {
       iconName,
-      secureTextEntry,
-      onFocus,
-      style
+      children,
+      errors,
+      warnings,
+      notes,
+      style,
+      ...props
     } = this.props;
 
+    const mergedProps: TextInputProperties = {
+      autoCapitalize: "none",
+      spellCheck: false,
+      autoCorrect: false,
+      keyboardAppearance: theme.KEYBOARD_APPEARANCE,
+      ...props
+    };
+
     return (
-      <View style={containerStyle}>
-        {iconName && (
-          <MaterialCommunityIcons
-            style={iconStyle}
-            name={iconName}
-            size={18}
-            color="#4d4d4d"
-          />
-        )}
-        <RNTextInput
-          placeholder={placeholder}
-          value={value}
-          autoCapitalize="none"
-          returnKeyType="done"
-          onFocus={onFocus}
-          spellCheck={false}
-          keyboardAppearance="dark"
-          autoCorrect={false}
-          secureTextEntry={secureTextEntry}
-          onChangeText={onChangeText}
-          style={{
-            ...(iconName ? (inputStyleWithIcon as {}) : inputStyle),
-            ...style
-          }}
-        />
+      <View>
+        <TouchableWithoutFeedback onPress={this.handleContainerPress}>
+          <View
+            style={{
+              ...containerStyle,
+              ...style
+            }}
+          >
+            {iconName && (
+              <MaterialCommunityIcons
+                style={iconStyle}
+                name={iconName}
+                size={18}
+                color={theme.BLACK}
+              />
+            )}
+            <RNTextInput
+              ref={this.assignRef}
+              {...mergedProps}
+              style={{
+                ...(iconName ? inputStyleWithIcon : inputStyle)
+              }}
+            />
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     );
+  }
+
+  handleContainerPress() {
+    if (this.input === null) {
+      return;
+    }
+
+    this.input.focus();
+  }
+
+  assignRef(input: any) {
+    if (input !== null) {
+      this.input = input;
+    }
   }
 }
