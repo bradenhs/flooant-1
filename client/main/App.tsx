@@ -3,15 +3,15 @@ import { TextInput } from "client/text-input";
 import { View, TouchableOpacity, Text } from "react-native";
 import { theme } from "client/theme";
 import { Layout } from "client/layout";
+import { Header } from "client/header";
 
 export class App extends React.Component {
   render() {
     return (
-      <Layout
-        topPane={this.renderTopPane()}
-        bottomPane={this.renderBottomPane()}
-        division={60}
-      />
+      <Layout>
+        <Header />
+        <Text>Hello</Text>
+      </Layout>
     );
   }
 
@@ -46,7 +46,7 @@ export class App extends React.Component {
         <TouchableOpacity
           onPress={() => 0}
           style={{
-            backgroundColor: theme.GREEN,
+            backgroundColor: theme.PRIMARY,
             elevation: 1,
             shadowColor: "#444",
             width: 200,
@@ -64,7 +64,7 @@ export class App extends React.Component {
         >
           <Text
             style={{
-              color: theme.WHITE,
+              color: theme.PRIMARY_TEXT,
               lineHeight: 54,
               fontSize: 18,
               fontWeight: "900",
@@ -86,7 +86,7 @@ export class App extends React.Component {
         >
           <Text
             style={{
-              color: theme.WHITE,
+              color: theme.SECONDARY_TEXT,
               fontSize: 18,
               lineHeight: 40,
               width: "100%",

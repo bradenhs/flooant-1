@@ -85,7 +85,7 @@ export class TextInput extends React.PureComponent<Props> {
                 style={iconStyle}
                 name={iconName}
                 size={18}
-                color={theme.BLACK}
+                color={theme.SECONDARY}
               />
             )}
             <RNTextInput
