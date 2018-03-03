@@ -8,9 +8,11 @@ import {
   View
 } from "react-native";
 import { autobind } from "core-decorators";
+import { theme } from "client/theme";
 
 const baseStyle: ViewStyle = {
-  flex: 1
+  flex: 1,
+  backgroundColor: theme.BACKGROUND
 };
 
 @autobind

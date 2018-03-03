@@ -72,11 +72,6 @@ export class Header extends React.Component {
     outputRange: [0, buttonTranslateAmount]
   });
 
-  closeButtonOpacity = this.animation.interpolate({
-    inputRange: [HEADER_CLOSED, HEADER_OPEN],
-    outputRange: [1, 1]
-  });
-
   closeButtonTranslateY = this.animation.interpolate({
     inputRange: [HEADER_CLOSED, HEADER_OPEN],
     outputRange: [-buttonTranslateAmount, 0]
@@ -131,7 +126,6 @@ export class Header extends React.Component {
             style={[
               styles.headerText,
               {
-                opacity: this.closeButtonOpacity,
                 transform: [{ translateY: this.closeButtonTranslateY }]
               }
             ]}

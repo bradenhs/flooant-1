@@ -9,5 +9,6 @@
     "node_modules": true,
     ".expo": true,
     ".vscode": true
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
