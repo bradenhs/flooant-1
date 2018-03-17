@@ -8,7 +8,9 @@
     "**/.DS_Store": true,
     "node_modules": true,
     ".expo": true,
-    ".vscode": true
+    ".vscode": true,
+    ".cache": true,
+    "website-dist": true
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }
